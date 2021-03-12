@@ -1,17 +1,26 @@
-import puppeteer from 'puppeteer';
+import { launch } from 'puppeteer';
 
 type Url = string;
 type Path = string;
 
-function openCarbonNowSh(url: Url) {}
+async function openCarbonNowSh(url: Url) {
+	const browser = await launch({
+		handleSIGINT: false,
+		handleSIGTERM: false,
+		handleSIGHUP: false,
+		headless: true,
+		args: ['--no-sandbox', '--disable-setuid-sandbox']
+	});
+	const page = await browser.newPage();
+	await page.goto(url);
+	return { browser, page };
+}
 
-export function getResp(url: Url, path: Path) {
-	(async () => {
-		const browser = await puppeteer.launch();
-		const page = await browser.newPage();
-		await page.goto('https://example.com');
-		await page.screenshot({ path: 'example.png' });
+export async function getResponse(url: Url, path: Path) {
+	const { browser, page } = await openCarbonNowSh(url);
+	const element = await page.$('#export-container .container-bg');
+	await element?.screenshot({ path });
 
-		await browser.close();
-	})();
+	await browser.close();
+	return path;
 }
