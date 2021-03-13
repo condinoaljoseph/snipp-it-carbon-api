@@ -8,6 +8,10 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.get('/', function (req: Request, res: Response) {
+	res.send('snipp it carbon api');
+});
+
 app.post('/', async function (req: Request, res: Response) {
 	const validatedBody = validateBody(req?.body);
 	const carbonUrl = createUrlString(validatedBody);
