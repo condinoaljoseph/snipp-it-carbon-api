@@ -1,2 +1,2 @@
-# carbon-api-unofficial
-Crawl carbon.now.sh site to generate an image.
+# carbon-api
+Crawl [carbon](https://carbon.now.sh/) site to generate an image.
