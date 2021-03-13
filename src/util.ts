@@ -57,7 +57,7 @@ const ignoredOptions = [
 	'selectedLines'
 ];
 
-export function validateBody(payload: any) {
+export function validateBody(payload: any): object {
 	let validatedBody: any = {};
 
 	if (!payload['code']) {
@@ -79,7 +79,7 @@ export function validateBody(payload: any) {
 	return validatedBody;
 }
 
-export function createUrlString(validatedBody: any) {
+export function createUrlString(validatedBody: any): string {
 	const BASE_URL = 'https://carbon.now.sh/';
 	let url = '';
 	let first = true;
@@ -98,9 +98,9 @@ export function createUrlString(validatedBody: any) {
 	return url;
 }
 
-function hexToRgb(hex: string) {
+function hexToRgb(hex: string): string {
 	if (hex.length != 6) {
-		throw 'Only six-digit hex colors are allowed.';
+		throw new Error('Only six-digit hex colors are allowed');
 	}
 
 	let aRgbHex: any = hex.match(/.{1,2}/g);
