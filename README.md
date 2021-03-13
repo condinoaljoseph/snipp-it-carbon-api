@@ -1,2 +1,3 @@
-# carbon-api
-Crawl [carbon](https://carbon.now.sh/) site to generate an image.
+# Carbon API
+
+Simple api that generates an image of snippet by automating [https://carbon.now.sh/](https://carbon.now.sh/) using [puppeteer](https://github.com/puppeteer/puppeteer).
