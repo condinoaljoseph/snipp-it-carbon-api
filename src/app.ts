@@ -15,7 +15,7 @@ app.get('/', function (req: Request, res: Response) {
 app.post('/', async function (req: Request, res: Response) {
 	const validatedBody = validateBody(req?.body);
 	const carbonUrl = createUrlString(validatedBody);
-	const path = await getResponse(carbonUrl, 'example.png');
+	const path = await getResponse(carbonUrl, 'public/example.png');
 
 	res.send(path);
 });
