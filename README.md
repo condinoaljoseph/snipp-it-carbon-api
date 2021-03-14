@@ -46,3 +46,5 @@ Image
 Path
 
 [https://snipp-it-carbon-api.herokuapp.com/](https://snipp-it-carbon-api.herokuapp.com/)
+
+If you encountered an error on launching the browser refer to this thread on [stackoverflow](https://stackoverflow.com/questions/63177218/puppeteer-on-heroku-failed-to-launch-the-browser-process)
