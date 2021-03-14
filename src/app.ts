@@ -18,9 +18,12 @@ app.post('/', async function (req: Request, res: Response) {
 	const validatedBody = validateBody(req?.body);
 	const imageDir = join(process.cwd(), 'public/example.png');
 	const carbonUrl = createUrlString(validatedBody);
-	const path = await getResponse(carbonUrl, imageDir);
-
-	res.send(path);
+	try {
+		const path = await getResponse(carbonUrl, imageDir);
+		res.status(200).json({ path });
+	} catch (err) {
+		res.status(400).json({ err });
+	}
 });
 
 app.listen(port, () => console.log('server running'));
