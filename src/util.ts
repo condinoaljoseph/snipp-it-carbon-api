@@ -84,7 +84,14 @@ export function createUrlString(validatedBody: any): string {
 	let url = '';
 	let first = true;
 
-	validatedBody['backgroundColor'] = hexToRgb(validatedBody['backgroundColor']);
+	// if (
+	// 	validatedBody?.backgroundColor.length === 7 ||
+	// 	validatedBody?.backgroundColor.startsWith('#')
+	// ) {
+	// 	validatedBody['backgroundColor'] = hexToRgb(
+	// 		validatedBody['backgroundColor']
+	// 	);
+	// }
 
 	for (let option in validatedBody) {
 		if (first) {
@@ -98,17 +105,13 @@ export function createUrlString(validatedBody: any): string {
 	return url;
 }
 
-function hexToRgb(hex: string): string {
-	if (hex.length != 6) {
-		throw new Error('Only six-digit hex colors are allowed');
-	}
+// function hexToRgb(hex: string): string {
+// 	let aRgbHex: any = hex.match(/.{1,2}/g);
+// 	let aRgb = [
+// 		parseInt(aRgbHex[0], 16),
+// 		parseInt(aRgbHex[1], 16),
+// 		parseInt(aRgbHex[2], 16)
+// 	];
 
-	let aRgbHex: any = hex.match(/.{1,2}/g);
-	let aRgb = [
-		parseInt(aRgbHex[0], 16),
-		parseInt(aRgbHex[1], 16),
-		parseInt(aRgbHex[2], 16)
-	];
-
-	return `rgba(${aRgb[0]}, ${aRgb[1]}, ${aRgb[2]})`;
-}
+// 	return `rgba(${aRgb[0]}, ${aRgb[1]}, ${aRgb[2]})`;
+// }
