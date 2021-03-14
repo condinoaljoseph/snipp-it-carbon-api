@@ -41,7 +41,7 @@ Simple api that generates an image of snippet by automating [https://carbon.now.
 
 Image
 
-![snippet](/example.png)
+![snippet](/public/example.png)
 
 Path
 
