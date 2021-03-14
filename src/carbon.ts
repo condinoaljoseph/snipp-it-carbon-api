@@ -12,6 +12,11 @@ async function openCarbonNowSh(url: Url) {
 		args: ['--no-sandbox', '--disable-setuid-sandbox']
 	});
 	const page = await browser.newPage();
+	await page.setViewport({
+		width: 800,
+		height: 800,
+		deviceScaleFactor: 2
+	});
 	await page.goto(url);
 	return { browser, page };
 }
